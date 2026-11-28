@@ -48,6 +48,7 @@
 @media (prefers-color-scheme: dark){:root[data-pal="keh"]:not([data-theme="light"]){--bg:#1f1208;--card:#321e0f;--card-2:rgba(246,228,200,0.07);--line:rgba(246,228,200,0.15);--text:#f6e4c8;--text-2:#d1b48a;--text-3:#9d8057;--accent:#f0a73f;--accent-ink:#24150a;--done:#8a9a86;--done-ink:#24150a;--danger:#e0a0a0;--weekend:#d9906a;--sheet:#291809;--bar:rgba(31,18,8,.92);color-scheme:dark;--pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='rgba(250,228,180,.065)' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M24.0 5.0 L26.7 17.5 L37.4 10.6 L30.5 21.3 L43.0 24.0 L30.5 26.7 L37.4 37.4 L26.7 30.5 L24.0 43.0 L21.3 30.5 L10.6 37.4 L17.5 26.7 L5.0 24.0 L17.5 21.3 L10.6 10.6 L21.3 17.5 Z'/%3E%3Ccircle cx='24' cy='24' r='2'/%3E%3Cpath d='M0 0l5 5M48 0l-5 5M0 48l5-5M48 48l-5-5'/%3E%3C/g%3E%3C/svg%3E");}}
 :root[data-theme="dark"][data-pal="keh"]{--bg:#1f1208;--card:#321e0f;--card-2:rgba(246,228,200,0.07);--line:rgba(246,228,200,0.15);--text:#f6e4c8;--text-2:#d1b48a;--text-3:#9d8057;--accent:#f0a73f;--accent-ink:#24150a;--done:#8a9a86;--done-ink:#24150a;--danger:#e0a0a0;--weekend:#d9906a;--sheet:#291809;--bar:rgba(31,18,8,.92);color-scheme:dark;--pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='rgba(250,228,180,.065)' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M24.0 5.0 L26.7 17.5 L37.4 10.6 L30.5 21.3 L43.0 24.0 L30.5 26.7 L37.4 37.4 L26.7 30.5 L24.0 43.0 L21.3 30.5 L10.6 37.4 L17.5 26.7 L5.0 24.0 L17.5 21.3 L10.6 10.6 L21.3 17.5 Z'/%3E%3Ccircle cx='24' cy='24' r='2'/%3E%3Cpath d='M0 0l5 5M48 0l-5 5M0 48l5-5M48 48l-5-5'/%3E%3C/g%3E%3C/svg%3E");}
 html, body { background: var(--bg); }
+html { overflow-x: clip; }
 body {
   margin: 0; color: var(--text); font: 400 17px/1.55 var(--f-display);
   background-image: var(--pat); background-size: var(--pats); background-attachment: fixed;
@@ -87,7 +88,7 @@ main, header.bar, footer { position: relative; z-index: 1; }
 .sig { width: min(460px, 78vw); height: auto; overflow: visible; }
 .sig g, .mono svg g, .manifesto .sign svg g { transform: skewX(-24deg); transform-origin: 130px 130px; }
 .sig path { fill: none; stroke: var(--text); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
-.sig .fl { stroke: var(--accent); stroke-width: 2.4; }
+.sig .fl { stroke: var(--text); stroke-width: 3.2; }
 .sig .dt { fill: var(--accent); stroke: none; transform-origin: center; transform-box: fill-box; transform: scale(0); }
 .intro.play .sig path { animation: draw var(--d, .7s) var(--w, 0s) cubic-bezier(.5, .05, .4, 1) forwards; }
 .intro.play .sig .dt { animation: pop .4s 2.45s var(--ease) forwards; }
@@ -106,7 +107,7 @@ header.bar.scrolled { border-bottom-color: var(--line); }
 .mono { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
 .mono svg { width: 42px; height: 46px; overflow: visible; }
 .mono svg path { fill: none; stroke: var(--text); stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
-.mono svg .fl { stroke: var(--accent); stroke-width: 8; }
+.mono svg .fl { stroke: var(--text); stroke-width: 9; }
 .nav { display: flex; gap: 4px; margin-left: auto; }
 .nav a { text-decoration: none; font: 600 13px/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--text-2); padding: 12px 10px; border-radius: 999px; transition: color .2s, background .2s; }
 .nav a:hover { color: var(--text); background: var(--card-2); }
@@ -152,7 +153,7 @@ body.ready .hero h1 .ch { animation: rise 1s calc(var(--i) * 38ms) var(--ease) b
 .manifesto .sign { margin-top: 30px; display: flex; align-items: center; gap: 16px; color: var(--text-2); font: 400 15px var(--f-read); }
 .manifesto .sign svg { width: 100px; height: 108px; overflow: visible; }
 .manifesto .sign path { fill: none; stroke: var(--text); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
-.manifesto .sign .fl { stroke: var(--accent); stroke-width: 5.5; }
+.manifesto .sign .fl { stroke: var(--text); stroke-width: 6; }
 @media (max-width: 760px) { .manifesto { grid-template-columns: 1fr; gap: 20px; } }
 
 /* ---------- Agenda feature ---------- */
@@ -243,10 +244,10 @@ body.ready .hero h1 .ch { animation: rise 1s calc(var(--i) * 38ms) var(--ease) b
 .inks-head h2, .next h2, .contact h2 { font: 300 clamp(38px, 6vw, 72px)/1.02 var(--f-display); letter-spacing: .05em; text-wrap: balance; }
 .inks-head p { font: 400 17px/1.6 var(--f-read); color: var(--text-2); max-width: 44ch; }
 @media (max-width: 760px) { .inks-head { grid-template-columns: 1fr; } }
-.wheel { display: flex; flex-wrap: wrap; gap: clamp(10px, 2vw, 22px); justify-content: center; padding-block: 18px; }
-.disc { position: relative; width: clamp(64px, 11vw, 112px); aspect-ratio: 1; border-radius: 50%; background: var(--b); border: 1px solid rgba(128, 128, 128, .4); box-shadow: 0 10px 26px rgba(0, 0, 0, .22); transition: transform .45s var(--ease); }
-.disc::after { content: ""; position: absolute; inset: -9px; border-radius: 50%; border: 2px solid var(--accent); opacity: 0; transform: scale(.85); transition: opacity .3s, transform .45s var(--ease); }
-.disc:hover { transform: translateY(-6px) scale(1.04); }
+.wheel { --d: clamp(56px, 13vw, 104px); display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(26px, 5vw, 40px); padding: 22px 12px; max-width: 100%; }
+.disc { position: relative; flex: 0 0 var(--d); width: var(--d); height: var(--d); aspect-ratio: 1; border-radius: 50%; background: var(--b); border: 1px solid rgba(128, 128, 128, .4); box-shadow: 0 8px 20px rgba(0, 0, 0, .2); transition: transform .45s var(--ease); }
+.disc::after { content: ""; position: absolute; inset: -7px; border-radius: 50%; border: 2px solid var(--accent); opacity: 0; transform: scale(.9); transition: opacity .3s, transform .45s var(--ease); }
+@media (hover: hover) { .disc:hover { transform: scale(1.06); } }
 .disc[aria-pressed="true"]::after { opacity: 1; transform: none; }
 .ink-name { text-align: center; margin-top: 26px; display: grid; gap: 6px; }
 .ink-name b { font: 400 clamp(26px, 3.4vw, 36px)/1.2 var(--f-display); letter-spacing: .06em; font-weight: 400; }
@@ -280,7 +281,7 @@ footer { padding-block: 40px calc(40px + env(safe-area-inset-bottom, 0px)); bord
 .foot-sig svg { width: 84px; height: 90px; overflow: visible; display: block; }
 .foot-sig svg g { transform: skewX(-24deg); transform-origin: 130px 130px; }
 .foot-sig path { fill: none; stroke: var(--text-2); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
-.foot-sig .fl { stroke: var(--accent); stroke-width: 5.5; }
+.foot-sig .fl { stroke: var(--text-2); stroke-width: 6; }
 .foot-in { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; justify-content: center; font: 400 13px var(--f-display); letter-spacing: .04em; color: var(--text-3); }
 
 .toast { position: fixed; left: 50%; top: calc(env(safe-area-inset-top, 0px) + 14px); z-index: 120; transform: translate(-50%, -16px); opacity: 0; pointer-events: none; background: var(--card); color: var(--text); border: 1px solid var(--line); border-radius: 16px; padding: 14px 20px; font: 600 15px var(--f-display); box-shadow: 0 6px 24px rgba(0, 0, 0, .25); transition: opacity .2s, transform .25s var(--ease); }
@@ -294,7 +295,7 @@ footer { padding-block: 40px calc(40px + env(safe-area-inset-bottom, 0px)); bord
 
 /* scroll-linked reveals: at rest everything is visible; supporting browsers ease it in as it enters */
 @supports (animation-timeline: view()) {
-  .rv { animation: rv linear both; animation-timeline: view(); animation-range: entry 0% cover 28%; }
+  .rv { animation: rv linear both; animation-timeline: view(); animation-range: entry 0% entry 90%; }
   @keyframes rv { from { opacity: .15; transform: translateY(40px); } to { opacity: 1; transform: none; } }
 }
 body { transition: opacity .25s var(--ease); }
